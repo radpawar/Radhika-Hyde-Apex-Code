@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Weather Details">
+        <template if:true={weatherInfo}>
+            <lightning-layout>
+                <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
+                    <lightning-card icon-name="standard:location" class="slds-align_absolute-center" title="Location">
+                        <div class="slds-align_absolute-center css-text">{weatherInfo.EPP_Test_RAD__Description__c}</div>
+                    </lightning-card>
+                </lightning-layout-item>
+            <!-- Temperature -->
+            <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
+                <lightning-card icon-name="custom:custom97" class="slds-align_absolute-center" title="Current Temperature">
+                    <div class="slds-align_absolute-center css-text">{weatherInfo.EPP_Test_RAD__Temp__c}</div>
+                </lightning-card>
+            </lightning-layout-item>
+            <!-- Temperature -->
+            </lightning-layout>
+        </template>
+
+        <template if:true={error}>
+            <div class="slds-m-top_medium">
+                <p>Error: {error}</p>
+            </div>
+        </template>
+    </lightning-card> 
+</template>

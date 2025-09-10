@@ -1,0 +1,30 @@
+<template>
+   <!-- <lightning-record-form
+      object-api-name={accountObject}
+      fields={myFields}
+      onsuccess={handleAccountCreated}
+    >
+    </lightning-record-form> -->
+
+    <div class="slds-var-p-around_x-small">
+        <template if:true={loaded}>
+            <lightning-combobox name="Subject" label="Subject" value={picklistValue} placeholder="--Select value--" options={options}  onchange={handelSubjectchange} >  </lightning-combobox>
+        </template>
+
+        <template if:true={priorityloaded}>
+            <lightning-combobox name="Priority" label="Priority" value={picklistValPriority} placeholder="--Select value--" options={priorityOptions}  onchange={handelPrioritychange} >  </lightning-combobox>
+        </template>
+
+        <lightning-input  type="date" value={dueDate} label="Due Date" onchange={handelDatechange}  placeholder="MM/DD/YYYY"></lightning-input>
+        
+    </div>
+
+    <footer class="slds-modal__footer">
+        <div class="slds-grid slds-grid_align-center">
+            <lightning-button label="Cancel" onclick={handleClose} variant="neutral"></lightning-button>
+            <lightning-button label="Save Task" variant="brand" onclick={createTaskRecordInfo} class="slds-var-m-left_x-small"></lightning-button>
+        </div>
+    
+    </footer>
+
+  </template>
