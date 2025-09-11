@@ -13,7 +13,6 @@ public with sharing class WeatherHelperController {
     public static void getWeatherDetails(EPP_Test_RAD__Location__c locationInfo, Map<EPP_Test_RAD__Location__c, WeatherHelperController.WeatherResponseWrapperClass> weatherResponseMap) {
         String cityName = locationInfo.EPP_Test_RAD__City__c;
         HttpResponse response = getWeatherResponse(cityName);
-        System.debug('response***'+response.getBody());
         WeatherHelperController.WeatherResponseWrapperClass results =(WeatherHelperController.WeatherResponseWrapperClass) System.JSON.deserialize(response.getBody(), WeatherHelperController.WeatherResponseWrapperClass.class);
         weatherResponseMap.put(locationInfo, results);    
     }
@@ -44,7 +43,6 @@ public with sharing class WeatherHelperController {
      * @param weatherResponseMap
     */
     public static void updateWeatherInfo(Map<EPP_Test_RAD__Location__c, WeatherHelperController.WeatherResponseWrapperClass> weatherResponseMap) {
-       System.debug(' updateWeatherInfo methoid weatherResponseMap***'+weatherResponseMap);
         List<EPP_Test_RAD__Location__c> locationUpdates = new List<EPP_Test_RAD__Location__c>();
         List<EPP_Test_RAD__Weather__c> weatherUpdates = new List<EPP_Test_RAD__Weather__c>();
         Set<Id> deleteWeatherRecords = new Set<Id>();
@@ -55,10 +53,8 @@ public with sharing class WeatherHelperController {
 
         for(EPP_Test_RAD__Location__c locationInfo : weatherResponseMap.keySet()) {               
             WeatherHelperController.WeatherResponseWrapperClass results = weatherResponseMap.get(locationInfo);
-            System.debug('results***'+results);
             
             if(results.cod != 200) {
-                System.debug('results.cod***'+results.cod);
                 deleteWeatherRecords.add(locationInfo.Id);
                 locationUpdates.add(getStatusCodeForFailedResponse(locationInfo, results));
                 continue;
@@ -73,8 +69,7 @@ public with sharing class WeatherHelperController {
 
             EPP_Test_RAD__Weather__c weatherInfo = new EPP_Test_RAD__Weather__c();
             if(locationInfo.EPP_Test_RAD__Weather__r.size()>0){
-                weatherInfo.Id = locationInfo.EPP_Test_RAD__Weather__r[0].Id;   
-                System.debug('weatherInfo.Id***'+weatherInfo.Id);
+                weatherInfo.Id = locationInfo.EPP_Test_RAD__Weather__r[0].Id;
             }
             weatherInfo.EPP_Test_RAD__Description__c = results.weather[0].description;
             weatherInfo.EPP_Test_RAD__Locations__c = locationInfo.Id;
@@ -86,17 +81,14 @@ public with sharing class WeatherHelperController {
             weatherUpdates.add(weatherInfo);
         }
 
-        System.debug('locationUpdates***'+locationUpdates);
         if(!locationUpdates.isEmpty()){
             List<Database.SaveResult> updateResults = Database.update(locationUpdates,false);
-            System.debug('locationUpdates***'+updateResults);
         }
-        System.debug('weatherUpdates***'+weatherUpdates);
+        
         if(!weatherUpdates.isEmpty()){
             //upsert weatherUpdates Id;
             Schema.SObjectField f = EPP_Test_RAD__Weather__c.Fields.Id;
             List<Database.UpsertResult> upsertResults = Database.upsert(weatherUpdates , f, false);
-            System.debug('upsertResults***'+upsertResults);
         }
 
         if(!deleteWeatherRecords.isEmpty()){
