@@ -5,7 +5,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>collapsed</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>enableActionsConfiguration</name>
@@ -21,7 +21,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>numVisibleActions</name>
-                    <value>3</value>
+                    <value>2</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
                 <identifier>force_highlightsPanel</identifier>
@@ -55,6 +55,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.City__c</fieldItem>
                 <identifier>RecordEPP_Test_RAD_City_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.CityId__c</fieldItem>
+                <identifier>RecordEPP_Test_RAD__CityId__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-51aa72aa-bf39-4e96-a97c-000556dc40c8</name>
@@ -165,6 +175,16 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.WeatherRecordCount__c</fieldItem>
+                <identifier>RecordEPP_Test_RAD_WeatherRecordCount_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-99906595-833f-4f16-b238-6abfd1cf6695</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -419,6 +439,10 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Tabs</value>
+                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>tabs</name>
                     <value>Facet-5f66d47e-5fd4-4d6d-b2be-58c8c71d8a1f</value>

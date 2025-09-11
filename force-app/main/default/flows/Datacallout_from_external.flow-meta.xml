@@ -30,6 +30,7 @@
             </value>
         </inputParameters>
         <nameSegment>EPP_Test_RAD::CalloutExternalApplication.weatherapi</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <apiVersion>61.0</apiVersion>
@@ -151,6 +152,12 @@
         <connector>
             <targetReference>Create_Child_Record_about_weatherInfo</targetReference>
         </connector>
+        <inputAssignments>
+            <field>CityId__c</field>
+            <value>
+                <elementReference>Callout_with_External_Application.2XX.id</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>IsAvailability__c</field>
             <value>

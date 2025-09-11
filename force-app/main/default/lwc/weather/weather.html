@@ -1,9 +1,17 @@
 <template>
-    <lightning-card title="Weather Details">
-        <template if:true={weatherInfo}>
+    <lightning-card title="Weather Details" icon-name="standard:account">
+         <div slot="actions" class="slds-grid slds-grid_align-end">          
+            <lightning-button label="Get Weather Details" variant="brand" icon-name="utility:refresh" class="slds-m-left_small" onclick={handleRefershWeather}></lightning-button>
+        </div>
+        
+       <!-- <template lwc:if={spinner}>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>-->
+        
+        <template lwc:if={weatherInfo}>
             <lightning-layout>
                 <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
-                    <lightning-card icon-name="standard:location" class="slds-align_absolute-center" title="Location">
+                    <lightning-card icon-name="standard:location" class="slds-align_absolute-center" title="Description">
                         <div class="slds-align_absolute-center css-text">{weatherInfo.EPP_Test_RAD__Description__c}</div>
                     </lightning-card>
                 </lightning-layout-item>
@@ -17,10 +25,13 @@
             </lightning-layout>
         </template>
 
-        <template if:true={error}>
+        <template lwc:elseif={error}>
             <div class="slds-m-top_medium">
                 <p>Error: {error}</p>
             </div>
+        </template>
+        <template lwc:else>
+            <div class="slds-text-color_error">Please click on Get Weather Details Button to retrive weather info.</div>
         </template>
     </lightning-card> 
 </template>

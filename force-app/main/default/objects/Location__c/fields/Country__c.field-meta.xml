@@ -15,6 +15,16 @@
                 <default>false</default>
                 <label>United Kingdom</label>
             </value>
+            <value>
+                <fullName>India</fullName>
+                <default>false</default>
+                <label>India</label>
+            </value>
+            <value>
+                <fullName>Canada</fullName>
+                <default>false</default>
+                <label>Canada</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
