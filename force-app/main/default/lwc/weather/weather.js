@@ -12,7 +12,6 @@ export default class Weather extends LightningElement {
     @wire(getWeatherDetails, { locationId: '$recordId' })
     weatherDetailsByType({ data, error }) {
         if (data) {
-          console.log(JSON.stringify(data));
           this.weatherInfo = data;
           if (error)
             console.log(error);
@@ -22,8 +21,6 @@ export default class Weather extends LightningElement {
       }
 
       async handleRefershWeather(event) {
-        console.log('event details****'+event.detail);
-        console.log('event  this.recordId ****'+ this.recordId );
          try {
           await getWeatherFromRefershButton({ locationId: this.recordId });
           // Report success with a toast
