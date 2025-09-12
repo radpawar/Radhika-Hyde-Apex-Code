@@ -2,9 +2,9 @@
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-## How Do You Plan to Deploy Your Changes?
+## How Do You Plan to Deploy Your Change
+1. clone this repository to your local machine(git clone https://github.com/radpawar/Radhika-Hyde-Apex-Code)
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
 
 ## Configure Your Salesforce DX Project
 
