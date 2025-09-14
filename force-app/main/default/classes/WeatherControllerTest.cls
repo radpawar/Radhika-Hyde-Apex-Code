@@ -120,6 +120,10 @@ public with sharing class WeatherControllerTest {
         Test.setMock(HttpCalloutMock.class, new WeatherDetailsMockClass());  
         WeatherBatchController ba= new WeatherBatchController();
         Id jobid= Database.executeBatch(ba,5);
+        
+        SchedulableContext sc = null;
+        ScheduleWeatherBatchClass scWeather= new ScheduleWeatherBatchClass();
+        scWeather.execute(sc);  
         Test.stopTest(); 
     }
     /**
