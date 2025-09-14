@@ -22,19 +22,14 @@ public with sharing class WeatherHelperController {
      * @return HttpResponse 
     */
     public static HttpResponse getWeatherResponse(String city){
-        String cityName = city;
-        String apiKey = '7074dd594c9481c701390717e693f49a'; // Replace with your actual API key
-        String endpoint = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey +'&units=metric';
-
+         Http h = new Http();
         HttpRequest request = new HttpRequest();
-        //request.setEndpoint('callout:bulkfyWeatherAPI'+ '?q='+cityName );
-        // request.setHeader('appid', '{!$Credential.WeatherAPICredentials_EX.password}');
-        request.setEndpoint(endpoint);
+        string path = 'q='+city+ '&units=metric';
+        request.setEndpoint('callout:OpenWeatherRestAPI?'+path);
         request.setMethod('GET');
-
-        Http http = new Http();
-        HttpResponse response = http.send(request);
-        System.debug('response***'+response.getBody());
+        request.setHeader('X-API-KEY', '{!$Credential.Password}');
+        request.setHeader('Content-Type', 'application/json');
+        HttpResponse response = h.send(request);    
         return response;
     } 
 
