@@ -18,8 +18,13 @@ Also, you can check in your org via setup-> Deployment status and see the succes
 
 
 ##  Post deployment steps: 
-1. Get the password from repo Owner to update into named cridentials
-2. Assign Weather_Test_Permission_Set permission set to your User
+1. Get the password from repo Owner to update into named credentials.
+2. Execute below cron expression from developer console -> execute anonymous window.  So that hourly, weather will be updated into the existing location records.
+3. // Cron EXP for hourly schedule 
+  String CRON_EXP = '0 0 * * * ?'; 
+  ScheduleWeatherBatchClass sch = new ScheduleWeatherBatchClass(); 
+  system.schedule('Hourly Weather Batch Schedule job', CRON_EXP, sch);
+4. Assign Weather_Test_Permission_Set permission set to your User.
 
 ## Testing steps
 Step 1: Go to the Location tab and make a new entry.
