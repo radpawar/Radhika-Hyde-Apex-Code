@@ -11,17 +11,28 @@
         <template lwc:if={weatherInfo}>
             <lightning-layout>
                 <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
-                    <lightning-card icon-name="standard:location" class="slds-align_absolute-center" title="Description">
+                    <lightning-card icon-name="standard:invocable_action" class="slds-align_absolute-center" title="Weather Condition">
                         <div class="slds-align_absolute-center css-text">{weatherInfo.EPP_Test_RAD__Description__c}</div>
                     </lightning-card>
                 </lightning-layout-item>
             <!-- Temperature -->
             <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
-                <lightning-card icon-name="custom:custom97" class="slds-align_absolute-center" title="Current Temperature">
+                <lightning-card icon-name="custom:custom97" class="slds-align_absolute-center" title="Temperature">
                     <div class="slds-align_absolute-center css-text">{weatherInfo.EPP_Test_RAD__Temp__c}</div>
                 </lightning-card>
             </lightning-layout-item>
             <!-- Temperature -->
+              <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
+                <lightning-card icon-name="utility:field_sales" class="slds-align_absolute-center slds-m-bottom_none" title="Humidity">
+                    <div class="slds-align_absolute-center css-text weather-icon">{weatherInfo.EPP_Test_RAD__humidity__c}</div>
+                </lightning-card>
+            </lightning-layout-item>
+            <!-- Temperature -->
+              <lightning-layout-item size="1" medium-device-size="3" padding="around_xx-small">
+                <lightning-card icon-name="utility:flow" class="slds-align_absolute-center" title="Wind Speed">
+                    <div class="slds-align_absolute-center css-text">{weatherInfo.EPP_Test_RAD__Wind_Speed__c}</div>
+                </lightning-card>
+            </lightning-layout-item>
             </lightning-layout>
         </template>
 
