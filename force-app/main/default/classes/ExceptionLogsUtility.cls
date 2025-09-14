@@ -2,7 +2,7 @@
 * ─────────────────────────────────────────────────────────────────────────────────────────────────
 * @Author         Radhika
 * @Class          ExceptionLogUtility
-* @Description    Create Exception log for any exception occurs.
+* @Description   Handle Exception
 * ──────────────────────────────────────────────────────────────────────────────────────────────────
 */
 
