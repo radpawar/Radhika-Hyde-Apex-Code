@@ -1,3 +1,4 @@
+@isTest
 global with sharing class WeatherNegativeResponseMock implements HttpCalloutMock {
      global HTTPResponse respond(HTTPRequest request) {
         String json=		'{'+
